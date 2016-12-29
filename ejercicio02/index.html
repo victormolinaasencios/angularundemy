@@ -35,21 +35,26 @@
                             {{teacher.profile}}
                             <br>
                             <br>
-                            <strong>Edad:</strong> {{teacher.age}} años   
+                            <strong>Edad:</strong> {{teacher.age}} años   {{5+5 | currency}}
+                            <hr>
+                            <button  class="btn btn-primary" ng-click="editTeacher()">Editar</button>
                         </div>
                     </section>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" ng-show="display">
                 <div class="col-sm-3">
                     <section class="panel">
                         <div class="panel-body" align="center">
                             Nombre: 
-                            <input type="text" class="form-control" ng-model="teacher.name"><br>
+                            <input type="text" class="form-control" ng-model="editingTeacher.name"><br>
                             Edad
-                            <input type="text" class="form-control" ng-model="teacher.age"><br>
+                            <input type="text" class="form-control" ng-model="editingTeacher.age"><br>
                             Descripcion:
-                            <textarea rows="5" class="form-control" ng-model="teacher.profile"></textarea>
+                            <textarea rows="5" class="form-control" ng-model="editingTeacher.profile"></textarea>
+                            <br>
+                            <button class="btn btn-success" ng-click="saveDataTeacher()">Guardar</button>
+                            <button class="btn btn-danger" type="" ng-click="cancelDataTeacher()">Cancelar</button>
                         </div>
                     </section>
                 </div> 

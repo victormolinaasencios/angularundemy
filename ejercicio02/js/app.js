@@ -1,6 +1,25 @@
 var app = angular.module('universidadApp',[]);
 app.controller('profesorCtrl', ['$scope', function ($scope) {
 	$scope.teacher = teacherData;
+	$scope.editingTeacher = {};
+	$scope.display = false;
+
+	$scope.editTeacher = function(){
+		angular.copy( $scope.teacher, $scope.editingTeacher);
+		$scope.display = true;
+	};
+
+	$scope.saveDataTeacher = function(){
+		$scope.teacher = $scope.editingTeacher;
+		$scope.editingTeacher = {};
+		$scope.display = false;
+	};
+
+	$scope.cancelDataTeacher = function(){
+		$scope.editingTeacher = {};
+		$scope.display = false;
+	};
+	
 }])
 
 var teacherData = {
